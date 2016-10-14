@@ -1,0 +1,29 @@
+{
+    "name": "weerd/chronos-events",
+    "description": "PHP package for working with calendar events.",
+    "keywords": ["events", "calendar"],
+    "license": "MIT",
+    "authors": [
+      {
+        "name": "Diego Lorenzo",
+        "email": "diego@diegolorenzo.com"
+      }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+      "psr-4": {
+        "Weerd\\ChronosEvents\\": "src/"
+      }
+    },
+    "require": {
+      "nesbot/carbon": "^1.21",
+      "illuminate/support": "^5.3",
+      "illuminate/database": "^5.3"
+    },
+    "autoload-dev": {
+      "classmap": ["tests/TestCase.php"]
+    },
+    "require-dev": {
+      "phpunit/phpunit": "^5.6"
+    }
+}
