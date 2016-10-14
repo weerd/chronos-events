@@ -1,6 +1,6 @@
 <?php
 
-use Weerd\TitanEvents\Models\CalendarEvent;
+use Weerd\ChronosEvents\Models\CalendarEvent;
 
 class CalendarEventTest extends TestCase
 {

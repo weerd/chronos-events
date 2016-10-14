@@ -2,7 +2,7 @@
 
 
 use Illuminate\Database\Capsule\Manager as DB;
-use Weerd\TitanEvents\Models\CalendarEvent;
+use Weerd\ChronosEvents\Models\CalendarEvent;
 
 abstract class TestCase extends PHPUnit_Framework_TestCase
 {

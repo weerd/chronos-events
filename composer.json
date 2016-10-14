@@ -1,5 +1,5 @@
 {
-    "name": "weerd/titan-events",
+    "name": "weerd/chronos-events",
     "description": "PHP package for working with calendar events.",
     "keywords": ["events", "calendar"],
     "license": "MIT",
@@ -12,7 +12,7 @@
     "minimum-stability": "dev",
     "autoload": {
       "psr-4": {
-        "Weerd\\TitanEvents\\": "src/"
+        "Weerd\\ChronosEvents\\": "src/"
       }
     },
     "require": {
