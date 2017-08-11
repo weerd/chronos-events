@@ -1,7 +1,7 @@
 {
     "name": "weerd/chronos-events",
-    "description": "PHP package for working with calendar events.",
-    "keywords": ["events", "calendar"],
+    "description": "Laravel package for working with calendar events.",
+    "keywords": ["events", "calendar", "cms", "laravel"],
     "license": "MIT",
     "authors": [
       {
@@ -16,12 +16,17 @@
       }
     },
     "require": {
-      "nesbot/carbon": "^1.21",
-      "illuminate/support": "^5.3",
-      "illuminate/database": "^5.3"
+      "nesbot/carbon": "^1.22",
+      "illuminate/support": "^5.4",
+      "illuminate/database": "^5.4"
     },
     "autoload-dev": {
-      "classmap": ["tests/TestCase.php"]
+      "classmap": [
+        "tests/TestCase.php"
+      ],
+      "psr-4": {
+        "Weerd\\ChronosEventsTests\\": "tests/"
+      }
     },
     "require-dev": {
       "phpunit/phpunit": "^5.6"
