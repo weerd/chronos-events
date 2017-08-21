@@ -15,10 +15,14 @@ class CreateCalendarEventsTable extends Migration
     {
         Schema::create('calendar_events', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
             $table->string('title');
-            $table->dateTime('date');
-            // $table->timestamp('timestamp');
+            $table->text('description')->nullable();
+            $table->dateTime('start_date_time');
+            $table->string('start_timezone');
+            $table->dateTime('end_date_time')->nullable();
+            $table->string('end_timezone');
+            $table->boolean('all_day')->default(false);
+            $table->integer('user_id')->unsigned();
             $table->timestamps();
         });
     }

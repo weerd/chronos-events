@@ -8,7 +8,12 @@ class CalendarEventController extends BaseController
 {
     public function __construct()
     {
-        //
+        $this->middleware(['web']);
+    }
+
+    public function index()
+    {
+        return 'why hello there list of events';
     }
 
     public function show()

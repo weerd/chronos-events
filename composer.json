@@ -1,34 +1,37 @@
 {
-    "name": "weerd/chronos-events",
-    "description": "Laravel package for working with calendar events.",
-    "keywords": ["events", "calendar", "cms", "laravel"],
-    "license": "MIT",
-    "authors": [
-      {
-        "name": "Diego Lorenzo",
-        "email": "diego@diegolorenzo.com"
-      }
-    ],
-    "minimum-stability": "dev",
-    "autoload": {
-      "psr-4": {
-        "Weerd\\ChronosEvents\\": "src/"
-      }
-    },
-    "require": {
-      "nesbot/carbon": "^1.22",
-      "illuminate/support": "^5.4",
-      "illuminate/database": "^5.4"
-    },
-    "autoload-dev": {
-      "classmap": [
-        "tests/TestCase.php"
-      ],
-      "psr-4": {
-        "Weerd\\ChronosEventsTests\\": "tests/"
-      }
-    },
-    "require-dev": {
-      "phpunit/phpunit": "^5.6"
+  "name": "weerd/chronos-events",
+  "description": "Laravel package for working with calendar events.",
+  "keywords": ["events", "calendar", "cms", "laravel"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Diego Lorenzo",
+      "email": "diego@diegolorenzo.com"
     }
+  ],
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "Weerd\\ChronosEvents\\": "src/"
+    },
+    "files": [
+      "src/helpers.php"
+    ]
+  },
+  "require": {
+    "nesbot/carbon": "^1.22",
+    "illuminate/support": "^5.4",
+    "illuminate/database": "^5.4"
+  },
+  "autoload-dev": {
+    "classmap": [
+      "tests/TestCase.php"
+    ],
+    "psr-4": {
+      "Weerd\\ChronosEventsTests\\": "tests/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^5.6"
+  }
 }
