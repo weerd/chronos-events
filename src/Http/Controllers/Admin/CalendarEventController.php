@@ -44,29 +44,19 @@ class CalendarEventController extends BaseController
     {
         $this->validate($request, [
             'title' => 'required',
+            'start_date' => 'required|date',
+            'start_timezone' => 'required|timezone',
+            'end_date' => 'required|date',
+            'end_timezone' => 'required|timezone',
             // @TODO: add other validation items
         ]);
-
-        // @TODO: move to model as attribute accessors
-        $startDateTime = null;
-        $endDateTime = null;
-        // https://www.wikiwand.com/en/List_of_tz_database_time_zones
-        if ($request->input('start_date')) {
-            $startDateTime = Carbon::parse($request->input('start_date') . ' ' . $request->input('start_time'), $request->input('start_timezone'))->timezone('utc');
-        }
-
-        if ($request->input('end_date')) {
-            $endDateTime = Carbon::parse($request->input('end_date') . ' ' . $request->input('end_time'), $request->input('end_timezone'))->timezone('utc');
-        }
-
-        $request = Event::parseDateTimes($request);
 
         $event = Event::create([
             'title' => $request->input('title'),
             'description' => $request->input('description'),
-            'start_date_time' => $startDateTime,
+            'start_date_time' => utc_date_time($request->input('start_date'), $request->input('start_time'), $request->input('start_timezone')),
             'start_timezone' => $request->input('start_timezone'),
-            'end_date_time' => $endDateTime,
+            'end_date_time' => utc_date_time($request->input('end_date'), $request->input('end_time'), $request->input('end_timezone')),
             'end_timezone' => $request->input('end_timezone'),
             'all_day' => $request->input('all_day') ?: false,
             'user_id' => auth()->id(),

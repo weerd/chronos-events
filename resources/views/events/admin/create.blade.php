@@ -1,5 +1,3 @@
-{{-- {{ dump(request()->old()) }} --}}
-
 @extends('chronos-events::layouts.admin.master')
 
 @section('content')
@@ -60,8 +58,8 @@
 
                 <label for="end_timezone">Timezone:</label>
                 <select name="end_timezone" id="end_timezone">
-                    @foreach(\DateTimeZone::listIdentifiers() as $timezone)
-                        <option value="{{ $timezone }}" {{ $timezone === 'America/New_York' ? 'selected' : null }}>{{ $timezone }}</option>
+                    @foreach(timezone_identifier_options(old('end_timezone')) as $timezone)
+                        <option value="{{ $timezone['identifier'] }}" {{ $timezone['selected'] ? 'selected' : null }}>{{ $timezone['identifier'] }}</option>
                     @endforeach
                 </select>
             </fieldset>

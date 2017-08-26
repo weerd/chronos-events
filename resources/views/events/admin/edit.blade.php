@@ -1,8 +1,3 @@
-{{-- {{ dump([
-    $event->toArray(),
-    $event->start_date_time
-]) }} --}}
-
 @extends('chronos-events::layouts.admin.master')
 
 @section('content')
@@ -37,15 +32,15 @@
             <fieldset>
                 <legend>Event Start:</legend>
 
-                <label for="start_date">Start Date:</label>
+                <label for="start_date">Date:</label>
                 <input type="date" id="start_date" name="start_date" value="{{ $event->start_date_string or old('start_date') }}" />
 
-                <label for="start_time">Start Time:</label>
+                <label for="start_time">Time:</label>
                 <input type="time" id="start_time" name="start_time" value="{{ $event->start_time_string or old('start_time') }}" />
 
                 <label for="start_timezone">Timezone:</label>
                 <select name="start_timezone" id="start_timezone">
-                    @foreach(timezone_identifier_options($event->start_timezone, old('start_timezone')) as $timezone)
+                    @foreach(timezone_identifier_options(old('start_timezone'), $event->start_timezone) as $timezone)
                         <option value="{{ $timezone['identifier'] }}" {{ $timezone['selected'] ? 'selected' : null }}>{{ $timezone['identifier'] }}</option>
                     @endforeach
                 </select>
@@ -56,16 +51,16 @@
             <fieldset>
                 <legend>Event End:</legend>
 
-                <label for="end_date">End Date:</label>
+                <label for="end_date">Date:</label>
                 <input type="date" id="end_date" name="end_date" value="{{ $event->end_date_string or old('end_date') }}" />
 
-                <label for="end_time">End Time:</label>
+                <label for="end_time">Time:</label>
                 <input type="time" id="end_time" name="end_time" value="{{ $event->end_time_string or old('end_time') }}" />
 
                 <label for="end_timezone">Timezone:</label>
                 <select name="end_timezone" id="end_timezone">
-                    @foreach(\DateTimeZone::listIdentifiers() as $timezone)
-                        <option value="{{ $timezone }}" {{ $timezone === 'America/New_York' ? 'selected' : null }}>{{ $timezone }}</option>
+                    @foreach(timezone_identifier_options(old('end_timezone'), $event->start_timezone) as $timezone)
+                        <option value="{{ $timezone['identifier'] }}" {{ $timezone['selected'] ? 'selected' : null }}>{{ $timezone['identifier'] }}</option>
                     @endforeach
                 </select>
             </fieldset>

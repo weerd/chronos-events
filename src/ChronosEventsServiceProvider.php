@@ -21,6 +21,10 @@ class ChronosEventsServiceProvider extends ServiceProvider
             $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
             $this->publishes([
+                __DIR__.'/../config/chronosevents.php' => config_path('chronosevents.php'),
+            ], 'chronos-events-config');
+
+            $this->publishes([
                 __DIR__.'/../resources/views' => resource_path('views/vendor/chronos-events'),
             ], 'chronos-events-views');
         }

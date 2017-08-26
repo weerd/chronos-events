@@ -3,10 +3,10 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | Add Title Here
+    | Calendar Event Timezone
     |--------------------------------------------------------------------------
     |
-    | Add info here.
+    | The default timezone when displaying and working with calendar events.
     |
     */
     'timezone' => 'America/New_York',

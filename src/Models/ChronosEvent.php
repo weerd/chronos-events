@@ -49,26 +49,41 @@ class ChronosEvent extends Model
         $this->attributes['all_day'] = filter_var($value, FILTER_VALIDATE_BOOLEAN);
     }
 
-    public static function parseDateTimes($request)
-    {
-        return $request;
-    }
-
+    /**
+     * Get the end date string.
+     *
+     * @return string
+     */
     public function getEndDateStringAttribute()
     {
         return $this->end_date_time->timezone($this->end_timezone)->toDateString();
     }
 
+    /**
+     * Get the end time string.
+     *
+     * @return string
+     */
     public function getEndTimeStringAttribute()
     {
         return $this->end_date_time->timezone($this->end_timezone)->toTimeString();
     }
 
+    /**
+     * Get the start date string.
+     *
+     * @return string
+     */
     public function getStartDateStringAttribute()
     {
         return $this->start_date_time->timezone($this->start_timezone)->toDateString();
     }
 
+    /**
+     * Get the start time string.
+     *
+     * @return string
+     */
     public function getStartTimeStringAttribute()
     {
         return $this->start_date_time->timezone($this->start_timezone)->toTimeString();
