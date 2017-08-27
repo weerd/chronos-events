@@ -98,7 +98,6 @@ class CalendarEventController extends BaseController
         $request['start_date_time'] = utc_date_time($request->input('start_date'), $request->input('start_time'), $request->input('start_timezone'));
         $request['end_date_time'] = utc_date_time($request->input('end_date'), $request->input('end_time'), $request->input('end_timezone'));
 
-        // @TODO: does all_day get set properly?
         $event->fill($request->except([
             'start_date',
             'start_time',

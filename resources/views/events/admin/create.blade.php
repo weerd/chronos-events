@@ -1,6 +1,3 @@
-{{ dump(request()->old()) }}
-{{ dump(old('all_day')) }}
-
 @extends('chronos-events::layouts.admin.master')
 
 @section('content')
