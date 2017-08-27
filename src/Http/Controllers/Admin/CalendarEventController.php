@@ -4,8 +4,9 @@ namespace Weerd\ChronosEvents\Http\Controllers\Admin;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Weerd\ChronosEvents\Http\Controllers\Controller as BaseController;
 use Weerd\ChronosEvents\Models\ChronosEvent as Event;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Weerd\ChronosEvents\Http\Controllers\Controller as BaseController;
 
 class CalendarEventController extends BaseController
 {
@@ -21,7 +22,7 @@ class CalendarEventController extends BaseController
      */
     public function index()
     {
-        return view('chronos-events::events.admin.index', ['events' => Event::all()]);
+        return view('chronos-events::events.admin.index', ['events' => Event::orderBy('start_date_time', 'asc')->get()]);
     }
 
     /**
@@ -48,7 +49,6 @@ class CalendarEventController extends BaseController
             'start_timezone' => 'required|timezone',
             'end_date' => 'required|date',
             'end_timezone' => 'required|timezone',
-            // @TODO: add other validation items
         ]);
 
         $event = Event::create([
@@ -85,9 +85,39 @@ class CalendarEventController extends BaseController
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            'title' => 'required',
+            'start_date' => 'required|date',
+            'start_timezone' => 'required|timezone',
+            'end_date' => 'required|date',
+            'end_timezone' => 'required|timezone',
+        ]);
+
         $event = Event::find($id);
 
-        $event->fill($request->all())->save();
+        $request['start_date_time'] = utc_date_time($request->input('start_date'), $request->input('start_time'), $request->input('start_timezone'));
+        $request['end_date_time'] = utc_date_time($request->input('end_date'), $request->input('end_time'), $request->input('end_timezone'));
+
+        // @TODO: does all_day get set properly?
+        $event->fill($request->except([
+            'start_date',
+            'start_time',
+            'end_date',
+            'end_time'
+        ]))->save();
+
+        return redirect()->route('admin.events.index');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  string $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $event = Event::findOrFail($id)->destroy($id);
 
         return redirect()->route('admin.events.index');
     }

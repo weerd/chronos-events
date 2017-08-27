@@ -67,7 +67,7 @@
         </div>
 
         <div>
-            <input type="checkbox" id="all_day" name="all_day" {{ $event->all_day ? 'checked' : null }}>
+            <input type="checkbox" id="all_day" name="all_day" {{ $event->all_day or old('all_day') ? 'checked' : null }}>
             <label for="all_day">All Day Event</label>
         </div>
 

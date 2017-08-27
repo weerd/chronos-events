@@ -1,3 +1,6 @@
+{{ dump(request()->old()) }}
+{{ dump(old('all_day')) }}
+
 @extends('chronos-events::layouts.admin.master')
 
 @section('content')
@@ -66,7 +69,7 @@
         </div>
 
         <div>
-            <input type="checkbox" id="all_day" name="all_day">
+            <input type="checkbox" id="all_day" name="all_day" {{ old('all_day') ? 'checked' : null }}>
             <label for="all_day">All Day Event</label>
         </div>
 
