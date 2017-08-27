@@ -20,5 +20,5 @@ Route::group(['namespace' => 'Weerd\ChronosEvents\Http\Controllers\Admin', 'pref
 // Client Routes
 Route::group(['namespace' => 'Weerd\ChronosEvents\Http\Controllers\Client'], function () {
     Route::get('events', 'CalendarEventController@index')->name('client.events.index');
-    // Route::get('events/{id}', 'CalendarEventController@show')->name('client.events.show');
+    Route::get('events/{id}', 'CalendarEventController@show')->name('client.events.show');
 });
