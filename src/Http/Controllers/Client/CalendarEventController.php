@@ -2,6 +2,7 @@
 
 namespace Weerd\ChronosEvents\Http\Controllers\Client;
 
+use Weerd\ChronosEvents\Models\ChronosEvent as Event;
 use Weerd\ChronosEvents\Http\Controllers\Controller as BaseController;
 
 class CalendarEventController extends BaseController
@@ -11,13 +12,26 @@ class CalendarEventController extends BaseController
         $this->middleware(['web']);
     }
 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        return 'why hello there list of events';
+        return view('chronos-events::events.client.index', ['events' => Event::orderBy('start_date_time', 'asc')->get()]);
     }
 
-    public function show()
+    /**
+     * Display the specified resource.
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
     {
-        return 'why hello there single event';
+        $event = Event::findOrFail($id);
+
+        return view('chronos-events::events.client.show', ['event' => $event]);
     }
 }

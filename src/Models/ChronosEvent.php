@@ -2,6 +2,7 @@
 
 namespace Weerd\ChronosEvents\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class ChronosEvent extends Model
@@ -50,6 +51,16 @@ class ChronosEvent extends Model
     }
 
     /**
+     * Get the end date and time in predefined timezone.
+     *
+     * @return
+     */
+    public function getEndAttribute()
+    {
+        return $this->end_date_time->timezone($this->end_timezone);
+    }
+
+    /**
      * Get the end date string.
      *
      * @return string
@@ -67,6 +78,16 @@ class ChronosEvent extends Model
     public function getEndTimeStringAttribute()
     {
         return $this->end_date_time->timezone($this->end_timezone)->toTimeString();
+    }
+
+    /**
+     * Get the start date and time in predefined timezone.
+     *
+     * @return
+     */
+    public function getStartAttribute()
+    {
+        return $this->start_date_time->timezone($this->start_timezone);
     }
 
     /**
