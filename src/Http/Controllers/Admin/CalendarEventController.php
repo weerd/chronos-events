@@ -100,7 +100,7 @@ class CalendarEventController extends BaseController
             'start_date',
             'start_time',
             'end_date',
-            'end_time'
+            'end_time',
         ]))->save();
 
         return redirect()->route('admin.events.index');

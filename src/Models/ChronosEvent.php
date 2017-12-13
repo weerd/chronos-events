@@ -2,7 +2,6 @@
 
 namespace Weerd\ChronosEvents\Models;
 
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class ChronosEvent extends Model
