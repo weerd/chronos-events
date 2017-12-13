@@ -2,10 +2,8 @@
 
 namespace Weerd\ChronosEvents\Http\Controllers\Admin;
 
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Weerd\ChronosEvents\Models\ChronosEvent as Event;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Weerd\ChronosEvents\Http\Controllers\Controller as BaseController;
 
 class CalendarEventController extends BaseController

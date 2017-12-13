@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
-Route::get('chronos', function() {
+Route::get('chronos', function () {
     return ['status' => 'Chronos Events routes are working!'];
 });
 
