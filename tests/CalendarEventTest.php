@@ -1,7 +1,5 @@
 <?php
 
-use Weerd\ChronosEvents\Models\CalendarEvent;
-
 class CalendarEventTest extends TestCase
 {
     /** @test */

@@ -3,6 +3,10 @@
   "description": "Laravel package for working with calendar events.",
   "keywords": ["events", "calendar", "cms", "laravel"],
   "license": "MIT",
+  "support": {
+    "issues": "https://github.com/weerd/chronos-events/issues",
+    "source": "https://github.com/weerd/chronos-events"
+  },
   "authors": [
     {
       "name": "Diego Lorenzo",
@@ -11,9 +15,12 @@
     }
   ],
   "require": {
-    "nesbot/carbon": "^1.22",
-    "illuminate/support": "^5.4",
-    "illuminate/database": "^5.4"
+    "illuminate/database": "~5.5",
+    "illuminate/support": "~5.5",
+    "nesbot/carbon": "^1.22"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^5.6"
   },
   "autoload": {
     "psr-4": {
@@ -23,9 +30,6 @@
       "src/helpers.php"
     ]
   },
-  "require-dev": {
-    "phpunit/phpunit": "^5.6"
-  },
   "autoload-dev": {
     "classmap": [
       "tests/TestCase.php"
@@ -34,7 +38,11 @@
       "Weerd\\ChronosEventsTests\\": "tests/"
     }
   },
+  "config": {
+    "sort-packages": true
+  },
   "minimum-stability": "dev",
+  "prefer-stable": true,
   "extra": {
         "laravel": {
             "providers": [
