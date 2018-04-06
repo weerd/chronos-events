@@ -2,7 +2,7 @@
 
 
 use Illuminate\Database\Capsule\Manager as DB;
-use Weerd\ChronosEvents\Models\CalendarEvent;
+use Weerd\ChronosEvents\Models\ChronosEvent as CalendarEvent;
 
 abstract class TestCase extends PHPUnit_Framework_TestCase
 {
@@ -28,8 +28,6 @@ abstract class TestCase extends PHPUnit_Framework_TestCase
             $table->string('title');
             $table->timestamps();
         });
-
-        // (new CreateCalendarEventsTable)->up();
     }
 
     public function makeCalendarEvent()
